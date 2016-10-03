@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
+    }
+}
+
+repositories {
+	mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+
+	def springVer 		= "4.3.3.RELEASE"
+	def hibernateVer 	= "5.1.0.Final"
+	def springJpaVer 	= "1.10.3.RELEASE"
+	def commonslVer 	= "1.4" 
+	def mysqlVer 		= "5.1.39"
+	def lombokVer       = "1.16.8"
+
+
+	providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+	
+	compile "org.springframework:spring-webmvc:${springVer}"
+	compile "org.springframework.data:spring-data-jpa:${springJpaVer}"
+	
+    compile "org.hibernate:hibernate-entitymanager:${hibernateVer}"        
+        
+    compile "mysql:mysql-connector-java:${mysqlVer}"  
+    compile "commons-dbcp:commons-dbcp:${commonslVer}"
+    compile "org.projectlombok:lombok:${lombokVer}"
+        
+   	testCompile "junit:junit:4+"        
+   	testCompile "org.springframework:spring-test:${springVer}"   	
+}
+
