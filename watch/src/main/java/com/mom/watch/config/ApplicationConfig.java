@@ -14,7 +14,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -59,8 +61,7 @@ public class ApplicationConfig {
         entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
         entityManagerFactoryBean.setPackagesToScan(getPackagesToScan());
-         
-        
+                 
 		Properties properties = new Properties(); 
 		
 		properties.setProperty("dialect",env.getProperty("hibernate.dialect")); 
@@ -73,6 +74,14 @@ public class ApplicationConfig {
         return entityManagerFactoryBean;
     }
     
+	@Bean
+	public JpaVendorAdapter jpaVendorAdapter(){
+	    HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
+	    jpaVendorAdapter.setGenerateDdl(true);
+	    jpaVendorAdapter.setShowSql(true);
+
+	    return jpaVendorAdapter;
+	}
 	
     @Bean
     public JpaTransactionManager transactionManager() {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="watch">
+		<class>com.mom.watch.model.Attribute</class>
+		<class>com.mom.watch.model.Company</class>
+		<class>com.mom.watch.model.Group</class>
+		<class>com.mom.watch.model.Organization</class>
+		<class>com.mom.watch.model.User</class>
+		<class>com.mom.watch.model.UserAttribute</class>
+		<class>com.mom.watch.model.UserAttributePK</class>
+		<class>com.mom.watch.model.UserGroup</class>
+		<class>com.mom.watch.model.UserGroupPK</class>
+		<class>com.mom.watch.model.UserOrganization</class>
+		<class>com.mom.watch.model.UserOrganizationPK</class>
+	</persistence-unit>
+</persistence>

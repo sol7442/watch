@@ -2,49 +2,46 @@ package com.mom.watch.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mom.watch.model.User;
 import com.mom.watch.repository.UserRepository;
-import com.mom.watch.service.ICommonService;
+import com.mom.watch.service.ServiceException;
 import com.mom.watch.service.UserService;
+import com.mom.watch.service.exception.AlreadyExistsExeception;
 
 @Service
 public class UserServiceImpl implements UserService {
-
-	@Resource
+	@Autowired
 	private UserRepository userRepository;
 	
 	@Override
-	public User create(User user) {
-		User _user = userRepository.save(user);
-		return _user;
+	public User create(User user) throws ServiceException {
+		if(userRepository.exists(user.getUserId())){
+			throw new AlreadyExistsExeception();
+		}
+		return userRepository.save(user);
 	}
 
 	@Override
-	public User delete(int id) throws UserNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(String id) throws ServiceException {
+		userRepository.delete(id);
 	}
 
 	@Override
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return userRepository.findAll();
 	}
 
 	@Override
-	public User update(User shop) throws UserNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public User update(User user) throws ServiceException {
+		return userRepository.save(user);
 	}
 
 	@Override
-	public User findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User findById(String id) {
+		return userRepository.findOne(id);
 	}
 
 }
