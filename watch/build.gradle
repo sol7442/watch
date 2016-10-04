@@ -25,9 +25,8 @@ dependencies {
 	def mysqlVer 		= "5.1.39"
 	def lombokVer       = "1.16.8"
 
-
 	providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
-	
+
 	compile "org.springframework:spring-webmvc:${springVer}"
 	compile "org.springframework.data:spring-data-jpa:${springJpaVer}"
 	
@@ -36,6 +35,10 @@ dependencies {
     compile "mysql:mysql-connector-java:${mysqlVer}"  
     compile "commons-dbcp:commons-dbcp:${commonslVer}"
     compile "org.projectlombok:lombok:${lombokVer}"
+
+	compile 'commons-logging:commons-logging:1.2'        
+    compile 'org.slf4j:jcl-over-slf4j:1.7.21'
+	compile "ch.qos.logback:logback-classic:1.1.7"    
         
    	testCompile "junit:junit:4+"        
    	testCompile "org.springframework:spring-test:${springVer}"   	
