@@ -36,6 +36,11 @@ public class ApplicationConfig {
 	
 	@Bean(destroyMethod="close")
 	public DataSource dataSource() {
+		
+		System.out.println("path : " + System.getProperty("user.dir"));
+		System.out.println("path : " + System.getProperty("app.path"));
+		System.out.println("path : " + env.getProperty("app.path"));
+		
 		BasicDataSource dataSource = new BasicDataSource();
 				
 		dataSource.setDriverClassName(env.getProperty("database.jdbcClass"));

@@ -4,14 +4,14 @@
 	
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern> %d{HH:mm} %-5level %logger{5} - %msg%n</pattern>
+			<pattern> %d{HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
 	</appender>
-	
-	<appender name="repository" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+	<appender name="system" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${logger.home}/repository.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>repository.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>system.%d{yyyy-MM-dd}.log</fileNamePattern>
 			<maxHistory>14</maxHistory>
 			<totalSizeCap>1GB</totalSizeCap>
 		</rollingPolicy>
@@ -21,14 +21,13 @@
 	</appender>
 
 	<logger name="org.hibernate.SQL" additivity="false" level="debug">
-		<appender-ref ref="repository"/>
+		<appender-ref ref="console"/>
 	</logger>
-	<logger name="org.hibernate.SQL" additivity="false" level="trace">
-		<appender-ref ref="repository"/>
-	</logger>
-	
 	<logger name="com.mom.watch" level="debug">
-		<appender-ref ref="console"/>		
+		<appender-ref ref="system"/>		
 	</logger>
+	<root level="debug">
+        <appender-ref ref="console" />
+    </root>
 	<shutdownHook/>
 </configuration>

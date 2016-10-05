@@ -25,6 +25,7 @@ public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherSe
 	
    @Override
     public void onStartup(final ServletContext servletContext) throws ServletException {
+	   System.setProperty("app.path",servletContext.getRealPath("/"));
         initWebapp(servletContext);
         super.onStartup(servletContext);
     }
@@ -46,8 +47,9 @@ public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherSe
 	}
 	
 	private void initWebapp(ServletContext servletContext) {
-		String logger_file = servletContext.getRealPath("WEB-INF");
-		initLogger(logger_file + "\\logger.xml");
+		String logger_file = servletContext.getRealPath("/");
+		
+		initLogger(logger_file + "\\WEB-INF\\logger.xml");
 	}
 
 	private void initLogger(String path) {
@@ -65,7 +67,6 @@ public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherSe
 				e.printStackTrace();
 			}
 		}
-		
 		logger.info("LOGGER SETTING : {}",path);
 	}
 }
