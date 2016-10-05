@@ -4,28 +4,57 @@
 	
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern> %d{HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+			<pattern> %d{HH:mm:ss} %-5level %logger -%msg%n</pattern>
 		</encoder>
 	</appender>
-
 	<appender name="system" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${logger.home}/repository.log</file>
+		<file>${logger.home}/system.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>system.%d{yyyy-MM-dd}.log</fileNamePattern>
 			<maxHistory>14</maxHistory>
 			<totalSizeCap>1GB</totalSizeCap>
 		</rollingPolicy>
 		<encoder>
-			<pattern> %d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+			<pattern> %d{HH:mm:ss} %-5level %logger -%msg%n</pattern>
 		</encoder>
 	</appender>
+	<!--  appender name="system" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logger.home}/system.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>system.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>14</maxHistory>
+			<totalSizeCap>1GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern> %d{HH:mm:ss} %-5level %logger -%msg%n</pattern>
+		</encoder>
+	</appender -->
+	
 
-	<logger name="org.hibernate.SQL" additivity="false" level="debug">
-		<appender-ref ref="console"/>
-	</logger>
-	<logger name="com.mom.watch" level="debug">
+	<appender name="repository" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logger.home}/repository.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>repository.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>14</maxHistory>
+			<totalSizeCap>1GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern> %d{HH:mm:ss} %-5level %logger -%msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	
+	<logger name="com.mom.watch.config" level="debug" additivity="false">
 		<appender-ref ref="system"/>		
 	</logger>
+	<logger name="org.springframework" level="debug" additivity="false">
+		<appender-ref ref="system"/>		
+	</logger>
+	
+	<logger name="org.hibernate" level="debug" additivity="false">
+		<appender-ref ref="repository"/>		
+	</logger>
+		
 	<root level="debug">
         <appender-ref ref="console" />
     </root>
