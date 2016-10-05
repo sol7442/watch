@@ -30,11 +30,13 @@ public class WebServletConfig extends WebMvcConfigurerAdapter {
 		resolver.setSuffix(env.getProperty("mvc.suffix"));
 		resolver.setExposeContextBeansAsAttributes(true);
 		
+		System.out.println("ViewResolver");
 		return resolver;
 	}
 	
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		System.out.println("configureDefaultServletHandling");
 		configurer.enable();
 	}
 

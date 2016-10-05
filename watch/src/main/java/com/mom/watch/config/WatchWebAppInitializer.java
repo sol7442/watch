@@ -7,27 +7,25 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
-import ch.qos.logback.core.net.SyslogOutputStream;
 
 public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer{
     
+	Logger logger = LoggerFactory.getLogger(WatchWebAppInitializer.class);
+	
    @Override
     public void onStartup(final ServletContext servletContext) throws ServletException {
         initWebapp(servletContext);
-
         super.onStartup(servletContext);
     }
 	
@@ -57,6 +55,8 @@ public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherSe
 		if(config_file.exists()){
 			try {
 				LoggerContext lc = (LoggerContext)LoggerFactory.getILoggerFactory();
+				lc.setPackagingDataEnabled(true);
+				
 				JoranConfigurator configurator = new JoranConfigurator();
 				configurator.setContext(lc);
 				lc.reset();
@@ -65,5 +65,7 @@ public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherSe
 				e.printStackTrace();
 			}
 		}
+		
+		logger.info("LOGGER SETTING : {}",path);
 	}
 }
