@@ -29,7 +29,7 @@ import com.mom.watch.WatchMain;
 @ComponentScan("com.mom.watch")
 @PropertySource("classpath:config.properties")
 @EnableJpaRepositories("com.mom.watch")
-public class ApplicationConfig {
+public class RepositoryConfig {
     @Resource
     private Environment env;
 

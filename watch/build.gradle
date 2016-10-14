@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
 
-	def springVer 		= "4.3.3.RELEASE"
+	def springVer 		= "4.2.8.RELEASE"
 	def hibernateVer 	= "5.1.0.Final"
 	def springJpaVer 	= "1.10.3.RELEASE"
 	def commonslVer 	= "1.4" 

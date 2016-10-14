@@ -2,10 +2,6 @@ package com.mom.watch.config;
 
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -19,20 +15,19 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
 
-public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer{
+public class ServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer{
     
-	Logger logger = LoggerFactory.getLogger(WatchWebAppInitializer.class);
+	Logger logger = LoggerFactory.getLogger(ServletInitializer.class);
 	
    @Override
     public void onStartup(final ServletContext servletContext) throws ServletException {
-	   System.setProperty("app.path",servletContext.getRealPath("/"));
         initWebapp(servletContext);
         super.onStartup(servletContext);
     }
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[]{ApplicationConfig.class};
+		return new Class<?>[]{RepositoryConfig.class};
 	}
 
 	@Override
@@ -47,9 +42,8 @@ public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherSe
 	}
 	
 	private void initWebapp(ServletContext servletContext) {
-		String logger_file = servletContext.getRealPath("/");
-		
-		initLogger(logger_file + "\\WEB-INF\\logger.xml");
+		String logger_file = servletContext.getRealPath("WEB-INF");
+		initLogger(logger_file + "\\logger.xml");
 	}
 
 	private void initLogger(String path) {
@@ -67,6 +61,7 @@ public class WatchWebAppInitializer extends AbstractAnnotationConfigDispatcherSe
 				e.printStackTrace();
 			}
 		}
+		
 		logger.info("LOGGER SETTING : {}",path);
 	}
 }

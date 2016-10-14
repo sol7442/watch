@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_LpVYYI7QEeaa_OOuVmTFpQ" name="NewModel">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_9R3HEI7QEeaa_OOuVmTFpQ" name="addUser">
+    <include xmi:id="_wnYtoI7SEeaa_OOuVmTFpQ" addition="_uumnEI7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_YhQQkI7REeaa_OOuVmTFpQ" name="Manager">
+    <eAnnotations xmi:id="_YhQ3oI7REeaa_OOuVmTFpQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_YhQ3oY7REeaa_OOuVmTFpQ" key="Human"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_aIeGAI7REeaa_OOuVmTFpQ" name="3rdParthSystem">
+    <eAnnotations xmi:id="_aIeGAY7REeaa_OOuVmTFpQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_aIeGAo7REeaa_OOuVmTFpQ" key="Human"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ggk3kI7REeaa_OOuVmTFpQ" name="byAPI">
+    <include xmi:id="_3WlUEI7TEeaa_OOuVmTFpQ" addition="_9R3HEI7QEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_l-IFYI7REeaa_OOuVmTFpQ" memberEnd="_l-TrkI7REeaa_OOuVmTFpQ _l-USoI7REeaa_OOuVmTFpQ">
+    <ownedEnd xmi:id="_l-TrkI7REeaa_OOuVmTFpQ" type="_aIeGAI7REeaa_OOuVmTFpQ" association="_l-IFYI7REeaa_OOuVmTFpQ"/>
+    <ownedEnd xmi:id="_l-USoI7REeaa_OOuVmTFpQ" type="_ggk3kI7REeaa_OOuVmTFpQ" association="_l-IFYI7REeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_nelLgI7REeaa_OOuVmTFpQ" name="byFile">
+    <include xmi:id="_3y_jQI7TEeaa_OOuVmTFpQ" addition="_9R3HEI7QEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_sWqUwI7REeaa_OOuVmTFpQ" memberEnd="_sWq70I7REeaa_OOuVmTFpQ _sWq70Y7REeaa_OOuVmTFpQ">
+    <ownedEnd xmi:id="_sWq70I7REeaa_OOuVmTFpQ" type="_YhQQkI7REeaa_OOuVmTFpQ" association="_sWqUwI7REeaa_OOuVmTFpQ"/>
+    <ownedEnd xmi:id="_sWq70Y7REeaa_OOuVmTFpQ" type="_nelLgI7REeaa_OOuVmTFpQ" association="_sWqUwI7REeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_3ramgI7REeaa_OOuVmTFpQ" name="byMenual">
+    <include xmi:id="_4LVx0I7TEeaa_OOuVmTFpQ" addition="_9R3HEI7QEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_76--QI7REeaa_OOuVmTFpQ" memberEnd="_76_lUI7REeaa_OOuVmTFpQ _77AMYI7REeaa_OOuVmTFpQ">
+    <ownedEnd xmi:id="_76_lUI7REeaa_OOuVmTFpQ" type="_YhQQkI7REeaa_OOuVmTFpQ" association="_76--QI7REeaa_OOuVmTFpQ"/>
+    <ownedEnd xmi:id="_77AMYI7REeaa_OOuVmTFpQ" type="_3ramgI7REeaa_OOuVmTFpQ" association="_76--QI7REeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_EFQRAI7SEeaa_OOuVmTFpQ" name="viewList">
+    <include xmi:id="_zJcasI7SEeaa_OOuVmTFpQ" addition="_uumnEI7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Fn6WkI7SEeaa_OOuVmTFpQ" name="Search">
+    <include xmi:id="_zn0jUI7TEeaa_OOuVmTFpQ" addition="_EFQRAI7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_H1tD0I7SEeaa_OOuVmTFpQ" name="" memberEnd="_H1u5AI7SEeaa_OOuVmTFpQ _H1vgEI7SEeaa_OOuVmTFpQ">
+    <ownedEnd xmi:id="_H1u5AI7SEeaa_OOuVmTFpQ" type="_YhQQkI7REeaa_OOuVmTFpQ" association="_H1tD0I7SEeaa_OOuVmTFpQ"/>
+    <ownedEnd xmi:id="_H1vgEI7SEeaa_OOuVmTFpQ" type="_Fn6WkI7SEeaa_OOuVmTFpQ" association="_H1tD0I7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_KmvoEI7SEeaa_OOuVmTFpQ" name="Group">
+    <include xmi:id="_0mcHsI7TEeaa_OOuVmTFpQ" addition="_EFQRAI7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_NX2dwI7SEeaa_OOuVmTFpQ" memberEnd="_NX3r4I7SEeaa_OOuVmTFpQ _NX3r4Y7SEeaa_OOuVmTFpQ">
+    <ownedEnd xmi:id="_NX3r4I7SEeaa_OOuVmTFpQ" type="_YhQQkI7REeaa_OOuVmTFpQ" association="_NX2dwI7SEeaa_OOuVmTFpQ"/>
+    <ownedEnd xmi:id="_NX3r4Y7SEeaa_OOuVmTFpQ" type="_KmvoEI7SEeaa_OOuVmTFpQ" association="_NX2dwI7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_XIOysI7SEeaa_OOuVmTFpQ" name="viewDetail"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ZBVCUI7SEeaa_OOuVmTFpQ" memberEnd="_ZBVpYI7SEeaa_OOuVmTFpQ _ZBWQcI7SEeaa_OOuVmTFpQ">
+    <ownedEnd xmi:id="_ZBVpYI7SEeaa_OOuVmTFpQ" type="_YhQQkI7REeaa_OOuVmTFpQ" association="_ZBVCUI7SEeaa_OOuVmTFpQ"/>
+    <ownedEnd xmi:id="_ZBWQcI7SEeaa_OOuVmTFpQ" type="_XIOysI7SEeaa_OOuVmTFpQ" association="_ZBVCUI7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_d6yEkI7SEeaa_OOuVmTFpQ" name="modify">
+    <include xmi:id="_12YiEI7SEeaa_OOuVmTFpQ" addition="_uumnEI7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_fV_eUI7SEeaa_OOuVmTFpQ" memberEnd="_fWAFYI7SEeaa_OOuVmTFpQ _fWAscI7SEeaa_OOuVmTFpQ">
+    <ownedEnd xmi:id="_fWAFYI7SEeaa_OOuVmTFpQ" type="_YhQQkI7REeaa_OOuVmTFpQ" association="_fV_eUI7SEeaa_OOuVmTFpQ"/>
+    <ownedEnd xmi:id="_fWAscI7SEeaa_OOuVmTFpQ" type="_d6yEkI7SEeaa_OOuVmTFpQ" association="_fV_eUI7SEeaa_OOuVmTFpQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_uumnEI7SEeaa_OOuVmTFpQ" name="management User"/>
+</uml:Model>

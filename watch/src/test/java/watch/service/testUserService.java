@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.mom.watch.config.ApplicationConfig;
+import com.mom.watch.config.RepositoryConfig;
 import com.mom.watch.model.User;
 import com.mom.watch.service.ServiceException;
 import com.mom.watch.service.UserService;
@@ -22,7 +22,7 @@ import com.mom.watch.service.exception.AlreadyExistsExeception;
 import com.mom.watch.service.exception.NotFoundException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=ApplicationConfig.class)
+@ContextConfiguration(classes=RepositoryConfig.class)
 @WebAppConfiguration
 public class testUserService {
 	@Autowired
